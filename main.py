@@ -1,13 +1,12 @@
 import asyncio
+import logging
 
-from aiogram import types
 from aiogram.utils import executor
 from decouple import config
 
 from config import dp, bot, URL
-import logging
-from handlers import callback, client, fsmAdminMenu, echo,notification
 from database.bot_db import sql_create
+from handlers import callback, client, fsmAdminMenu, echo, notification
 
 
 async def on_startup(_):
@@ -35,5 +34,4 @@ if __name__ == "__main__":
                            on_startup=on_startup,
                            on_shutdown=on_shutown,
                            host="0.0.0.0",
-                           port=config("PORT", cast=int)
-                        )
+                           port=config("PORT", cast=int))
